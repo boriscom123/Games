@@ -1,0 +1,39 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 75px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+
+  &-content {
+    margin: 0 auto;
+    width: 95%;
+    max-width: 1200px;
+    height: 100%;
+    min-height: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    > h1 {
+      padding-bottom: 1px;
+      &:hover {
+        border-bottom: 1px solid grey;
+      }
+    }
+    > div {
+      font-size: 2em;
+      color: green;
+      > i {
+        cursor: pointer;
+        transition: $transition;
+        &:hover {
+          color: red;
+        }
+        &:active {
+          color: darkred;
+        }
+      }
+    }
+  }
+}
