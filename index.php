@@ -10,7 +10,7 @@
 
     <header class="header">
       <div class="header-content">
-        <h1><a href="index.html">MyGames</a></h1>
+        <h1><a href="index.php">MyGames</a></h1>
         <div class="">
           <i class="fas fa-user"></i>
         </div>
@@ -22,10 +22,10 @@
       <div class="main-content">
 
         <div class="game-card" title="Угадай песню по картинкам">
-          <a class="game-image" href="game-1.html">
+          <a class="game-image" href="game-1.php">
             <img src="image/game-1.jpg" alt="game-1">
           </a>
-          <h2 class="game-name"><a href="game-1.html">Game 1</a></h2>
+          <h2 class="game-name"><a href="game-1.php">Game 1</a></h2>
         </div>
 
         <!--<div class="game-card" title="Тестим Яндекс поиск">

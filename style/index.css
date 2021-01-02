@@ -27,6 +27,14 @@ a {
   color: rgba(21, 21, 21, 0.9);
 }
 
+.d-none {
+  display: none;
+}
+
+.d-flex {
+  display: flex;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -110,6 +118,45 @@ a {
   height: 100vh;
   width: 100%;
   padding: 85px 0 60px 0;
+}
+.main-game-1 > .main-content > h1 {
+  text-align: center;
+}
+.main-game-1 > .main-content > h2 {
+  text-align: center;
+}
+.main-game-1 > .main-content > .name {
+  display: none;
+}
+.main-game-1 > .main-content > .author {
+  display: none;
+}
+.main-game-1 > .main-content > .text {
+  display: none;
+}
+
+.image {
+  /* background-color: yellow; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 50vh;
+  width: 95%;
+  margin: 0 auto;
+}
+.image > i {
+  cursor: pointer;
+  font-size: 5em;
+}
+.image > img {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  /* left: 0; */
+  height: inherit;
+  width: inherit;
+  object-fit: contain;
 }
 
 .footer {
