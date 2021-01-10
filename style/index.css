@@ -115,12 +115,14 @@ a {
 }
 
 .main-game-1 {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   padding: 85px 0 60px 0;
 }
 .main-game-1 > .main-content > h1 {
   text-align: center;
+  max-width: 95%;
+  margin: 0 auto;
 }
 .main-game-1 > .main-content > h2 {
   text-align: center;
@@ -140,7 +142,6 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   height: 50vh;
   width: 95%;
   margin: 0 auto;
@@ -149,7 +150,12 @@ a {
   cursor: pointer;
   font-size: 5em;
 }
-.image > img {
+.image > div {
+  height: inherit;
+  width: inherit;
+  position: relative;
+}
+.image > div > img {
   cursor: pointer;
   position: absolute;
   top: 0;
@@ -157,6 +163,31 @@ a {
   height: inherit;
   width: inherit;
   object-fit: contain;
+}
+.image > div > .word {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.image > div > .change-img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.image > div > .change-img > i {
+  font-size: 2em;
+  cursor: pointer;
 }
 
 .footer {
