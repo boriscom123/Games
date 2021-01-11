@@ -1,3 +1,13 @@
+<?php
+  include '../php/show_errors.php';
+  // include '../php/show_info.php';
+  if($_SERVER['SERVER_ADDR'] == '127.0.0.1') {
+    include '../php/db_connect-local.php';
+  } else {
+    include '../php/db_connect-game.php';
+  }
+  include '../php/session.php';
+?>
 <!DOCTYPE html>
 <html lang="ru-en" dir="ltr">
   <head>
@@ -44,7 +54,8 @@
 
     <footer class="footer">
       <div class="footer-content">
-        <a href="#"><i class="fas fa-info-circle"></i></a>
+        <a href="#" title="<?php print_r($_SESSION); ?>"><i class="fas fa-info-circle"></i></a>
+        <a href="privacy.php">Политика</a>
       </div>
     </footer>
 

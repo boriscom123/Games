@@ -1,0 +1,145 @@
+.main-game-1 {
+  min-height: 100vh;
+  width: 100%;
+  padding: 85px 0 60px 0;
+}
+.main-game-1 > .main-content > h1 {
+  text-align: center;
+  max-width: 95%;
+  margin: 0 auto;
+}
+.main-game-1 > .main-content > h2 {
+  text-align: center;
+}
+.main-game-1 > .main-content > .name {
+  display: none;
+}
+.main-game-1 > .main-content > .author {
+  display: none;
+}
+.main-game-1 > .main-content > .text {
+  display: none;
+}
+.main-game-1 > .main-content > .image {
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 95%;
+  margin: 0 auto;
+}
+.main-game-1 > .main-content > .image > i {
+  cursor: pointer;
+  font-size: 5em;
+}
+.main-game-1 > .main-content > .image > div {
+  height: inherit;
+  width: inherit;
+  position: relative;
+}
+.main-game-1 > .main-content > .image > div > img {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  /* left: 0; */
+  height: inherit;
+  width: inherit;
+  object-fit: contain;
+}
+.main-game-1 > .main-content > .image > div > .word {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5px 10px;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.main-game-1 > .main-content > .image > div > .change-img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.main-game-1 > .main-content > .image > div > .change-img > i {
+  font-size: 2em;
+  cursor: pointer;
+}
+.main-game-1 > .main-content > .game-menu {
+  width: 95%;
+  max-width: 320px;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+.main-game-1 > .main-content > .game-menu .game-option {
+  margin: 10px 0;
+  cursor: pointer;
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 1.5em;
+}
+.main-game-1 > .main-content > .game-menu .game-option:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.main-game-1 > .main-content > .game-answers {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+}
+.main-game-1 > .main-content > .game-answers > .answer {
+  margin: 10px 0;
+  cursor: pointer;
+  width: 100%;
+  max-width: 500px;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 1.5em;
+}
+.main-game-1 > .main-content > .game-answers > .answer:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.main-game-1 > .main-content > .game-answers > .true {
+  background-color: #b4e391;
+}
+.main-game-1 > .main-content > .game-answers > .true:hover {
+  background-color: #b4e391;
+}
+.main-game-1 > .main-content > .game-answers > .wrong {
+  background-color: #ff1a00;
+}
+.main-game-1 > .main-content > .game-answers > .wrong:hover {
+  background-color: #ff1a00;
+}
+.main-game-1 > .main-content > .game-answers > .new-game {
+  margin: 10px 0;
+  cursor: pointer;
+  width: 100%;
+  max-width: 500px;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 1.5em;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/*# sourceMappingURL=game-1.css.map */
