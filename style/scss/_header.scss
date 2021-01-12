@@ -16,22 +16,22 @@
     justify-content: space-between;
     align-items: center;
     > h1 {
-      padding-bottom: 1px;
-      &:hover {
-        border-bottom: 1px solid grey;
-      }
+      cursor: pointer;
     }
     > div {
       font-size: 2em;
-      color: green;
-      > i {
-        cursor: pointer;
-        transition: $transition;
-        &:hover {
-          color: red;
-        }
-        &:active {
-          color: darkred;
+      > a {
+        > i {
+          color: green;
+          cursor: pointer;
+          transition: $transition;
+
+          &:hover {
+            color: red;
+          }
+          &:active {
+            color: darkred;
+          }
         }
       }
     }

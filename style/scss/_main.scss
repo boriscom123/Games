@@ -1,7 +1,7 @@
 .main {
   min-height: 100vh;
   width: 100%;
-  padding: 85px 0 60px 0;
+  padding: 75px 0 60px 0;
 
   > &-content {
     margin: 0 auto;
@@ -30,7 +30,8 @@
     > img {
       height: inherit;
       width: inherit;
-      object-fit: cover;
+      -o-object-fit: cover;
+         object-fit: cover;
       border-radius: 5px;
     }
   }

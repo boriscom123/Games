@@ -6,6 +6,7 @@
   } else {
     include '../php/db_connect-game.php';
   }
+  include '../php/session.php';
 ?>
 <!DOCTYPE html>
 <html lang="ru-en" dir="ltr">
@@ -21,48 +22,51 @@
   </head>
   <body>
 
-    <header class="header">
-      <div class="header-content">
-        <h1><a href="index.php">MyGames</a></h1>
-        <div class="">
-          <i class="fas fa-user"></i>
-        </div>
-      </div>
-    </header>
+    <?php include 'include/header.php'; ?>
 
     <main class="main-game-1">
 
       <div class="main-content">
         <h1>Угадай песню по картинкам</h1>
         <?php
-          // запрашиваем данные песни
+          // запрашиваем произвольную песню
           $STH = $DBC->prepare("SELECT * FROM game_songs ORDER BY RAND() LIMIT 1");
           $STH->execute();
           $song = $STH->fetch(PDO::FETCH_ASSOC);
-          print_r($song);
+          // print_r($song);
+          // подготовка пести - разбивка по словам и удаление ненужных символов
+          $song_content =  $song['content'];
+          // перевод в нижний регистр
+          $song_content = mb_strtolower($song_content);
+          // замена спецсимволов
+          $replace = array(",", ".", "!", "\"", ";", ":");
+          $song_content = str_replace($replace, "", $song_content);
+          // удаление лишних пробелов в начале и конце строки
+          $song_content = trim($song_content);
+          // удаление сдвоенныъ пробелов и знаков -
+          $patterns = array ('/\s\s+/', '/(\-)|(\s\-\s)/');
+          $song_content = preg_replace($patterns, ' ', $song_content);
+          // преобразование строки в массив со словами
+          $song_content = explode(" ", $song_content);
+          // print_r($song_content);
+          echo '<br>';
           echo '<h2 class="name" id="name">'. $song['name'] .'</h2>';
           echo '<h2 class="author" id="author">'. $song['author'] .'</h2>';
           echo '<h2>Текст песни:</h2>';
-          echo '<p class="text" id="text">';
-          $song_content = json_decode($song['content']);
-          echo '</p>';
+          echo '<p class="text" id="text"></p>';
           echo '<div class="image d-flex" id="image">';
           echo '<i class="fas fa-play-circle" id="start"></i>';
           foreach($song_content as $value){
-            // print_r($value);
-            $id = explode("+", $value->id);
-            // print_r($id);
-            foreach($id as $id_val){
-              $STH = $DBC->prepare("SELECT * FROM game_words LEFT JOIN game_images ON game_words.id=game_images.word_id WHERE game_words.id=:id");
-              $data = array('id' => $id_val);
-              $STH->execute($data);
-              $word = $STH->fetch(PDO::FETCH_ASSOC);
-              echo '<div class="d-none">';
-                echo '<img class="" src="'. $word['src'] .'" alt="image:'. $word['src'] .'">';
-                echo '<div class="word d-none">'. $word['name'] .'</div>';
-                echo '<div class="change-img"><i class="fas fa-sync-alt"></i></div>';
-              echo '</div>';
-            }
+            // echo $value;
+            $STH = $DBC->prepare("SELECT * FROM game_words LEFT JOIN game_images ON game_words.id=game_images.word_id WHERE game_words.name=:name");
+            $data = array('name' => $value);
+            $STH->execute($data);
+            $word = $STH->fetch(PDO::FETCH_ASSOC);
+            echo '<div class="d-none">';
+              echo '<img class="" src="'. $word['src'] .'" alt="image:'. $word['src'] .'">';
+              echo '<div class="word d-none">'. $word['name'] .'</div>';
+              echo '<div class="change-img"><i class="fas fa-sync-alt"></i></div>';
+            echo '</div>';
           }
           echo '</div>';
           // итоговое меню игры
@@ -73,21 +77,27 @@
           echo '</div>';
           // варианты ответов
           echo '<div class="game-answers d-none" id="game-answers">';
-          echo '<div class="answer" id="true">Вариант 1</div>';
-          echo '<div class="answer">Вариант 2</div>';
-          echo '<div class="answer">Вариант 3</div>';
-          echo '<div class="answer">Вариант 4</div>';
+          // выбираем еще 3 случайных варианта из БД
+          $STH = $DBC->prepare("SELECT name FROM game_songs WHERE id!=:id ORDER BY RAND() LIMIT 3");
+          $data = array('id' => $song['id']);
+          $STH->execute($data);
+          $songs  = $STH->fetchAll(PDO::FETCH_ASSOC);
+          $songs[] = array('name' => $song['name']);
+          shuffle($songs);
+          foreach($songs as $answer){
+            if($answer['name'] == $song['name']) {
+              echo '<div class="answer" id="true">'. $answer['name'] .'</div>';
+            } else {
+              echo '<div class="answer">'. $answer['name'] .'</div>';
+            }
+          }
           echo '</div>';
         ?>
       </div>
 
     </main>
 
-    <footer class="footer">
-      <div class="footer-content">
-        <a href="#"><i class="fas fa-info-circle"></i></a>
-      </div>
-    </footer>
+    <?php include 'include/footer.php'; ?>
 
     <script src="script/game-1.js"></script>
   </body>

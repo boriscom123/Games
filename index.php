@@ -21,14 +21,7 @@
   </head>
   <body>
 
-    <header class="header">
-      <div class="header-content">
-        <h1><a href="index.php">MyGames</a></h1>
-        <div class="">
-          <i class="fas fa-user"></i>
-        </div>
-      </div>
-    </header>
+    <?php include 'include/header.php'; ?>
 
     <main class="main">
 
@@ -52,12 +45,7 @@
 
     </main>
 
-    <footer class="footer">
-      <div class="footer-content">
-        <a href="#" title="<?php print_r($_SESSION); ?>"><i class="fas fa-info-circle"></i></a>
-        <a href="privacy.php">Политика</a>
-      </div>
-    </footer>
+    <?php include 'include/footer.php'; ?>
 
     <script src="script/index.js"></script>
   </body>
