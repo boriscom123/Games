@@ -43,7 +43,8 @@
           /* left: 0; */
           height: inherit;
           width: inherit;
-          object-fit: contain;
+          -o-object-fit: contain;
+             object-fit: contain;
         }
         > .word {
           position: absolute;

@@ -62,6 +62,7 @@
             $data = array('name' => $value);
             $STH->execute($data);
             $word = $STH->fetch(PDO::FETCH_ASSOC);
+            // print_r($word);
             echo '<div class="d-none">';
               echo '<img class="" src="'. $word['src'] .'" alt="image:'. $word['src'] .'">';
               echo '<div class="word d-none">'. $word['name'] .'</div>';

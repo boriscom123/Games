@@ -121,3 +121,8 @@ let gameMenuEl = document.getElementById('game-menu');
 gameMenuEl.addEventListener('click', function(){gameMenu()}, false);
 let gameAnswersEl = document.getElementById('game-answers');
 gameAnswersEl.addEventListener('click', function(){checkAnswer()}, false);
+
+/** Проверка доступа к Ya.ru  */
+let test123 = fetch('https://www.googleapis.com/customsearch/v1?key=AIzaSyBHoBbZmuSzPjJwtUA8UL6yhgKy2HGaqtg&cx=cfaea5bf17c170da0&q=лесу').
+then( (response) => {console.log(response); return response.text();}).
+then( (response) => {console.log(response);} );
